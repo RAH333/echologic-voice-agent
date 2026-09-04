@@ -44,7 +44,7 @@ echologic-voice-agent/
 ├── .gitignore
 └── README.md
 ```
-# EchoLogic AI — Voice Agent Platform 🎙️
+# EchoLogic AI — Voice Agent Platform
 
 An autonomous, low-latency operational voice agent workspace built for field engineers using **AssemblyAI's Voice Agent API**, **Universal-3 Pro Streaming STT**, **FastAPI**, and **Next.js**, deployed effortlessly via **Vercel**.
 
