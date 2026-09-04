@@ -154,3 +154,28 @@ cd frontend
 npm run dev
 ```
 Open your secure web space browser interface at `http://localhost:3000` to interact directly with your workspace portal!
+
+## 🎛️ Automated Development & Deployment Launcher
+
+This repository includes a modular automation framework located right in the codebase directory. Users do not need to install tools manually or handle complex global path variables.
+
+### How to Download and Run (For Your Team & Judges)
+```bash
+# 1. Clone your main custom project repository
+git clone https://github.com
+
+# 2. Open the project folder
+cd echologic-voice-agent
+
+# 3. Grant administrative execution privileges to the launcher tool
+chmod +x run_orchestrator.sh
+
+# 4. Fire up the dashboard menu to choose your setup module
+./run_orchestrator.sh
+```
+
+### Code Segment Checklist
+- **Stage 1:** Clones official helper templates right next to this project directory, injects keys, and compiles workspace dependencies.
+- **Stage 2:** Configures optional cellular network endpoints and connects active phone routing channels.
+- **Stage 3 (Agent API Segment):** Configures streaming web-socket properties, modifies real-time audio thresholds, and updates server parameters.
+- 
