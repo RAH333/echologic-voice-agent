@@ -9,7 +9,7 @@ def compile_voice_focus_suppression_block(model_type, sensitivity_threshold=None
     # 1. Enforce specific model token choices
     model_clean = str(model_type).strip().lower()
     if model_clean not in ["near-field", "far-field"]:
-        print(f"❌ Configuration Exception: Type [{model_clean}] is unmapped.")
+        print(f"Configuration Exception: Type [{model_clean}] is unmapped.")
         print("   Valid choices are strictly limited to 'near-field' or 'far-field'.")
         return None
 
@@ -22,16 +22,16 @@ def compile_voice_focus_suppression_block(model_type, sensitivity_threshold=None
         try:
             threshold_float = float(sensitivity_threshold)
             if not (0.0 <= threshold_float <= 1.0):
-                print(f"❌ Threshold Out of Bounds: Value [{threshold_float}] must be 0.0 to 1.0.")
+                print(f"Threshold Out of Bounds: Value [{threshold_float}] must be 0.0 to 1.0.")
                 return None
             
             payload_input["voice_focus_threshold"] = threshold_float
-            print(f"  ✅ Verified: Suppression threshold locked at aggression index: {threshold_float}")
+            print(f"Verified: Suppression threshold locked at aggression index: {threshold_float}")
         except ValueError:
-            print("❌ Validation Exception: Threshold must be a floating point number.")
+            print("Validation Exception: Threshold must be a floating point number.")
             return None
     else:
-        print("  ✅ Verified: Using factory default aggression index (0.85).")
+        print("Verified: Using factory default aggression index (0.85).")
 
     # 3. Assemble structural container block matching API specs
     voice_focus_payload = {
@@ -39,7 +39,7 @@ def compile_voice_focus_suppression_block(model_type, sensitivity_threshold=None
     }
 
     print("\n=================================================================")
-    print("🎉 SUCCESS: Environmental background focus criteria compiled.")
+    print("SUCCESS: Environmental background focus criteria compiled.")
     print("=================================================================")
     return voice_focus_payload
 
