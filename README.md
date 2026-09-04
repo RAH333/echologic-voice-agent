@@ -251,4 +251,26 @@ chmod +x run_orchestrator.sh
 - **Stage 1:** Clones official helper templates right next to this project directory, injects keys, and compiles workspace dependencies.
 - **Stage 2:** Configures optional cellular network endpoints and connects active phone routing channels.
 - **Stage 3 (Agent API Segment):** Configures streaming web-socket properties, modifies real-time audio thresholds, and updates server parameters.
-- 
+
+# EchoLogic AI Framework Console 🎙️
+
+Welcome to the unified core repository platform for EchoLogic AI. Our architecture includes an active, composable automation dashboard that maps 39 core documentation pages 1-to-1 onto isolated, zero-error test modules.
+
+## ⚡ Setup and Operation Instructions
+
+To launch the multi-stage developer control room and evaluate any documentation segment safely, run this single root-level orchestrator:
+
+```bash
+# 1. Access your local custom cloned feature directory branch
+cd echologic-voice-agent
+
+# 2. Grant administrative script launch configuration clearance
+chmod +x run_orchestrator.sh
+
+# 3. Fire up the looping dashboard control room
+./run_orchestrator.sh
+```
+
+## Multi-Stage Compilation Registry
+Our architecture is organized across 39 separate script files inside the `automation-matrix/` directory. Each file completely isolates its variables, safeguarding your workspace against sequence compile bugs or out-of-order execution errors.
+
