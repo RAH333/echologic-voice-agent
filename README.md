@@ -74,18 +74,18 @@ echologic-voice-agent/                 <-- Root folder of your custom GitHub Rep
 │   ├── package.json                   # Node.js third-party package dependencies mapping
 │   └── vercel.json                    # Configuration variables telling Vercel how to compile
 │
-├── automation-matrix/                 # 📁 THE AUTOMATION MODULE CONTAINER FOLDER
+├── automation-matrix/                 # THE AUTOMATION MODULE CONTAINER FOLDER
 │   ├── stage1_setup.sh                # Script: Handles side-by-side repo cloning & npm installs
 │   ├── stage2_twilio.sh               # Script: Handles interactive phone & SIP trunk credentials
 │   └── stage3_agent_api.sh            # Script: Handles advanced AssemblyAI streaming adjustments
 │
 ├── .gitignore                         # Protects keys (.env) and excludes massive cache folders
 ├── README.md                          # Interactive documentation containing your system flowchart
-└── run_orchestrator.sh                # 🎛️ THE MASTER MANAGER LAUNCHER SCRIPT
+└── run_orchestrator.sh                # THE MASTER MANAGER LAUNCHER SCRIPT
 
 ```
 ```
-echologic-voice-agent/                 <-- 🌿 Your Custom GitHub Repository Branch
+echologic-voice-agent/                 <-- Your Custom GitHub Repository Branch
 │
 ├── .github/workflows/
 │   └── deploy.yml                     # Validates compiling build states on push
@@ -113,7 +113,7 @@ echologic-voice-agent/                 <-- 🌿 Your Custom GitHub Repository Br
 │   ├── package.json                   # Node.js third-party package dependencies mapping
 │   └── vercel.json                    # Configuration variables telling Vercel how to compile
 │
-├── automation-matrix/                 # 📁 INDEPENDENT FULL-PAGE CODE SEGMENTS
+├── automation-matrix/                 # INDEPENDENT FULL-PAGE CODE SEGMENTS
 │   ├── stage1_get_started.sh          # [Page 1] Core Clone, Dependency Setup & Start
 │   ├── stage2_voice_agent_api.sh      # [Page 2] Architectural Flow & Overview Logs
 │   ├── stage3_build_with_ai.sh        # [Page 3] Enforce Initial Audio & AEC Parameters
@@ -156,7 +156,7 @@ echologic-voice-agent/                 <-- 🌿 Your Custom GitHub Repository Br
 │
 ├── .gitignore                         # Protects keys (.env) and excludes massive cache folders
 ├── README.md                          # Interactive documentation containing your system flowchart
-└── run_orchestrator.sh                # 🎛️ THE CENTRAL MASTER COMPOSABLE AUTOMATION HUB
+└── run_orchestrator.sh                # THE CENTRAL MASTER COMPOSABLE AUTOMATION HUB
 ```
 
 # EchoLogic AI — Voice Agent Platform
@@ -252,11 +252,11 @@ chmod +x run_orchestrator.sh
 - **Stage 2:** Configures optional cellular network endpoints and connects active phone routing channels.
 - **Stage 3 (Agent API Segment):** Configures streaming web-socket properties, modifies real-time audio thresholds, and updates server parameters.
 
-# EchoLogic AI Framework Console 🎙️
+# EchoLogic AI Framework Console
 
 Welcome to the unified core repository platform for EchoLogic AI. Our architecture includes an active, composable automation dashboard that maps 39 core documentation pages 1-to-1 onto isolated, zero-error test modules.
 
-## ⚡ Setup and Operation Instructions
+## Setup and Operation Instructions
 
 To launch the multi-stage developer control room and evaluate any documentation segment safely, run this single root-level orchestrator:
 
