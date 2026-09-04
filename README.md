@@ -44,6 +44,48 @@ echologic-voice-agent/
 ├── .gitignore
 └── README.md
 ```
+```
+echologic-voice-agent/                 <-- Root folder of your custom GitHub Repository
+│
+├── .github/
+│   └── workflows/
+│       └── deploy.yml                 # CI/CD file to validate compiling states
+│
+├── backend/                           # Your Python Fulfillment System
+│   ├── app/
+│   │   ├── __init__.py                # Package initializer file
+│   │   ├── config.py                  # Pydantic global environment variables settings
+│   │   ├── main.py                    # FastAPI server entry point and endpoint routers
+│   │   └── tools.py                   # Custom tool schema execution declarations
+│   ├── Dockerfile                     # Container instructions for your backend cloud server
+│   └── requirements.txt               # Backend Python dependency listing
+│
+├── frontend/                          # Your Vercel Next.js User Interface
+│   ├── public/                        # Static assets, icons, and logos
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── layout.tsx             # Main HTML framing wrapper component
+│   │   │   └── page.tsx               # Primary user-facing dashboard template
+│   │   ├── components/
+│   │   │   └── VoiceInterface.tsx     # The interactive WebSockets mic control center
+│   │   └── config/
+│   │       └── env.ts                 # Dynamic URL router matching Vercel to your backend
+│   ├── next.config.js                 # Core configurations for Next.js execution loops
+│   ├── package.json                   # Node.js third-party package dependencies mapping
+│   └── vercel.json                    # Configuration variables telling Vercel how to compile
+│
+├── automation-matrix/                 # 📁 THE AUTOMATION MODULE CONTAINER FOLDER
+│   ├── stage1_setup.sh                # Script: Handles side-by-side repo cloning & npm installs
+│   ├── stage2_twilio.sh               # Script: Handles interactive phone & SIP trunk credentials
+│   └── stage3_agent_api.sh            # Script: Handles advanced AssemblyAI streaming adjustments
+│
+├── .gitignore                         # Protects keys (.env) and excludes massive cache folders
+├── README.md                          # Interactive documentation containing your system flowchart
+└── run_orchestrator.sh                # 🎛️ THE MASTER MANAGER LAUNCHER SCRIPT
+
+```
+
+
 # EchoLogic AI — Voice Agent Platform
 
 An autonomous, low-latency operational voice agent workspace built for field engineers using **AssemblyAI's Voice Agent API**, **Universal-3 Pro Streaming STT**, **FastAPI**, and **Next.js**, deployed effortlessly via **Vercel**.
