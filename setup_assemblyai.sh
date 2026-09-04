@@ -1,6 +1,6 @@
 cd ..
 #!/bin/bash
-
+cd
 # Exit immediately if any individual installation step fails
 set -e
 
