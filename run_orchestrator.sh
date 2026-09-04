@@ -1,44 +1,57 @@
 #!/bin/bash
 set -e
-clear
 
 REPO_DIR=$(pwd)
 MATRIX_DIR="$REPO_DIR/automation-matrix"
 
-echo "================================================================="
-echo "ECHOLOGIC AI — CORE AUTOMATION & COMPONENT RUNTIME PLATFORM"
-echo "================================================================="
-echo "1) STAGE 1: Fresh Installation & Local Dependency Setup"
-echo "2) STAGE 2: Advanced Telephony (Twilio SIP Gateway Integration)"
-echo "3) STAGE 3: Agent API Custom Code Segment Configurations"
-echo "4) STAGE 4: Session History Analytics & Transcript Extraction" # Added
-echo "5) EXIT"
-echo "-----------------------------------------------------------------"
-read -p "Choose a code segment block to initialize [1-5]: " MODULAR_CHOICE
+# Ensure runtime script folder permissions are set correctly
+chmod +x "$MATRIX_DIR"/*.sh 2>/dev/null || true
 
-case $MODULAR_CHOICE in
-    1)
-        chmod +x "$MATRIX_DIR/stage1_setup.sh"
-        bash "$MATRIX_DIR/stage1_setup.sh" "$REPO_DIR"
-        ;;
-    2)
-        chmod +x "$MATRIX_DIR/stage2_twilio.sh"
-        bash "$MATRIX_DIR/stage2_twilio.sh" "$REPO_DIR"
-        ;;
-    3)
-        chmod +x "$MATRIX_DIR/stage3_agent_api.sh"
-        bash "$MATRIX_DIR/stage3_agent_api.sh" "$REPO_DIR"
-        ;;
-    4)
-        chmod +x "$MATRIX_DIR/stage4_session_analytics.sh"
-        bash "$MATRIX_DIR/stage4_session_analytics.sh" "$REPO_DIR"
-        ;;
-    5)
-        echo "Exiting configuration environment safely."
-        exit 0
-        ;;
-    *)
-        echo "Selection error. Please run the script again."
-        exit 1
-        ;;
-esac
+while true; do
+    clear
+    echo "================================================================="
+    echo "🧠  ECHOLOGIC AI — OPERATIONAL MATRIX CONTROL ROOM"
+    echo "================================================================="
+    echo "Active Workspace Branch Context: [feature/automation-matrix]"
+    echo "-----------------------------------------------------------------"
+    echo "Select an isolated code segment module to configure and execute:"
+    echo " 1) [Page: Core Setup]        Initialize Side-by-Side Repositories"
+    echo " 2) [Page: Connect To Twilio] Setup SIP Telephony Phone Lines"
+    echo " 3) [Page: Build with AI]      Enforce PCM16 Audio & AEC Rules"
+    echo " 4) [Page: Manage Agents]      Pull Session Histories & Timelines"
+    echo " 5) [Page: Supported Langs]   Deploy Universal-3.5 Multilingual"
+    echo " 6) Exit Matrix"
+    echo "-----------------------------------------------------------------"
+    read -p "👉 Type option [1-6] and hit Enter: " ORCH_SELECTION
+
+    case $ORCH_SELECTION in
+        1)
+            bash "$MATRIX_DIR/stage1_core_setup.sh" "$REPO_DIR"
+            read -p "🏁 Task complete. Press Enter to return to Matrix Menu..." dummy
+            ;;
+        2)
+            bash "$MATRIX_DIR/stage2_twilio_sip.sh" "$REPO_DIR"
+            read -p "🏁 Task complete. Press Enter to return to Matrix Menu..." dummy
+            ;;
+        3)
+            bash "$MATRIX_DIR/stage3_agent_api.sh" "$REPO_DIR"
+            read -p "🏁 Task complete. Press Enter to return to Matrix Menu..." dummy
+            ;;
+        4)
+            bash "$MATRIX_DIR/stage4_session_analytics.sh" "$REPO_DIR"
+            read -p "🏁 Task complete. Press Enter to return to Matrix Menu..." dummy
+            ;;
+        5)
+            bash "$MATRIX_DIR/stage5_language_matrix.sh" "$REPO_DIR"
+            read -p "🏁 Task complete. Press Enter to return to Matrix Menu..." dummy
+            ;;
+        6)
+            echo "👋 Closing workspace session safely. Happy hacking!"
+            exit 0
+            ;;
+        *)
+            echo "❌ Invalid entry. Press Enter to retry..."
+            read dummy
+            ;;
+    esac
+done
