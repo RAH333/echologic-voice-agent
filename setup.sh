@@ -4,7 +4,7 @@
 set -e
 
 echo "===================================================="
-echo "🚀 ECLOLOGIC AI - AUTOMATED WORKSPACE SETUP ORCHESTRATOR"
+echo "ECLOLOGIC AI - AUTOMATED WORKSPACE SETUP ORCHESTRATOR"
 echo "===================================================="
 
 # Check if a local .env configuration module already exists
@@ -44,7 +44,7 @@ EOF
 fi
 
 echo "----------------------------------------------------"
-echo "⚙️  Initializing Backend Virtual Space & Packages..."
+echo "Initializing Backend Virtual Space & Packages..."
 echo "----------------------------------------------------"
 cd backend
 python3 -m venv venv
