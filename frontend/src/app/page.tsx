@@ -1,4 +1,9 @@
-import VoiceInterface from '@/components/VoiceInterface';
+//import VoiceInterface from '@/components/VoiceInterface';
+// Change this:
+//import VoiceInterface from '@/components/VoiceInterface';
+
+// To a relative path instead:
+import VoiceInterface from '../components/VoiceInterface';
 
 export default function Home() {
   return (
