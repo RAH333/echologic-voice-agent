@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
-import './globals.css'; // Ensure you have standard tailwind directives inside this file
+
+// Commented out since globals.css was not found in your repository structure.
+// If you add a globals.css file later, you can uncomment this line.
+// import './globals.css'; 
 
 export const metadata: Metadata = {
   title: 'EchoLogic AI Portal',
@@ -8,10 +11,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  providedContext,
 }: {
   children: React.ReactNode;
-  providedContext?: any;
 }) {
   return (
     <html lang="en">
