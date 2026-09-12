@@ -26,18 +26,25 @@ if [ ! -f .env ]; then
     if [ -f .env.example ]; then cp .env.example .env; else touch .env; fi
 fi
 
-pwd
+# if [ -f "$REPO_DIR/.env" ]; then
+    # EXISTING_KEY=$(grep "ASSEMBLYAI_API_KEY=" "$REPO_DIR/.env" | cut -d'=' -f2 || true)
+    # if [ -n "$EXISTING_KEY" ]; then
+        ##sed -i.bak "/^ASSEMBLYAI_API_KEY=/d" .env 2>/dev/null || true
+        ## Safely remove only the old AssemblyAI key line
+        # sed -i "" "/^ASSEMBLYAI_API_KEY=/d" .env 2>/dev/null || sed -i.bak "/^ASSEMBLYAI_API_KEY=/d" .env 2>/dev/null || true
+        # echo "ASSEMBLYAI_API_KEY=$EXISTING_KEY" >> .env
+        # echo "Auto-synced global configuration tokens across repositories."
+        # pwd
+    # fi
+# fi
 
+# Now this block will find the separate file paths and print your output!
 if [ -f "$REPO_DIR/.env" ]; then
-    pwd
     EXISTING_KEY=$(grep "ASSEMBLYAI_API_KEY=" "$REPO_DIR/.env" | cut -d'=' -f2 || true)
     if [ -n "$EXISTING_KEY" ]; then
-        #sed -i.bak "/^ASSEMBLYAI_API_KEY=/d" .env 2>/dev/null || true
-        # Safely remove only the old AssemblyAI key line
         sed -i "" "/^ASSEMBLYAI_API_KEY=/d" .env 2>/dev/null || sed -i.bak "/^ASSEMBLYAI_API_KEY=/d" .env 2>/dev/null || true
         echo "ASSEMBLYAI_API_KEY=$EXISTING_KEY" >> .env
-        echo "Auto-synced global configuration tokens across repositories."
-        pwd
+        echo "🔄 Auto-synced global configuration tokens across repositories."
     fi
 fi
 
