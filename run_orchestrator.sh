@@ -30,10 +30,37 @@ while true; do
     echo "-----------------------------------------------------------------"
     read -p "👉 Choose targeted automation chapter number [1-12]: " CHAPTER
 
+    # case $CHAPTER in
+        # 1)
+            # echo "--- Executing Core Setup Steps [Pages 1 to 5] ---"
+            # bash "$MATRIX_DIR/stage1_get_started.sh" "$REPO_DIR"
+            # ;;
     case $CHAPTER in
         1)
-            echo "--- Executing Core Setup Steps [Pages 1 to 5] ---"
-            bash "$MATRIX_DIR/stage1_get_started.sh" "$REPO_DIR"
+            echo "-----------------------------------------------------------------"
+            echo "Select an isolated Core Provisioning / Telephony Setup Module [Pages 1 to 5]:"
+            echo "-----------------------------------------------------------------"
+            echo " 1) Run Stage 1: Core Setup, Cloner, Dependecies & Twilio Telephony Injection"
+            echo " 2) Run Stage 2: Session Reconstruct & Telemetry Extraction (stage2_tele.sh)"
+            echo " 3) Run Stage 3: Twilio SIP Telephony Gateway Configuration"
+            echo " 4) Run Stage 4: Advanced Agent API Code Router & Overrides"
+            echo " 5) Run Stage 5: Multilingual Code-Switching Voice Provisioner"
+            echo "-----------------------------------------------------------------"
+            read -p "👉 Choose setup step [1-5]: " sub_setup
+
+            if [ "$sub_setup" -eq 1 ]; then
+                bash "$MATRIX_DIR/stage1_get_started.sh" "$REPO_DIR"
+            elif [ "$sub_setup" -eq 2 ]; then
+                bash "$MATRIX_DIR/stage2_tele.sh" "$REPO_DIR"
+            elif [ "$sub_setup" -eq 3 ]; then
+                bash "$MATRIX_DIR/stage3_twilio.sh" "$REPO_DIR" 2>/dev/null || echo "❌ stage3_twilio.sh missing or target context unavailable."
+            elif [ "$sub_setup" -eq 4 ]; then
+                bash "$MATRIX_DIR/stage4_agent_api.sh" "$REPO_DIR" 2>/dev/null || echo "❌ stage4_agent_api.sh missing or target context unavailable."
+            elif [ "$sub_setup" -eq 5 ]; then
+                bash "$MATRIX_DIR/stage5_multilingual.sh" "$REPO_DIR" 2>/dev/null || echo "❌ stage5_multilingual.sh missing or target context unavailable."
+            else
+                echo "❌ Invalid setup selection."
+            fi
             ;;
         2)
             echo "--- Launching REST Agent Specifications CRUD Hub [Pages 6 to 11] ---"
