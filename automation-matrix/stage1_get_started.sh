@@ -33,10 +33,13 @@ if [ -f "$REPO_DIR/.env" ]; then
     pwd
     EXISTING_KEY=$(grep "ASSEMBLYAI_API_KEY=" "$REPO_DIR/.env" | cut -d'=' -f2 || true)
     if [ -n "$EXISTING_KEY" ]; then
-        pwd
-        sed -i.bak "/^ASSEMBLYAI_API_KEY=/d" .env 2>/dev/null || true
+        #sed -i.bak "/^ASSEMBLYAI_API_KEY=/d" .env 2>/dev/null || true
+        # Safely remove only the old AssemblyAI key line
+        sed -i "" "/^ASSEMBLYAI_API_KEY=/d" .env 2>/dev/null || sed -i.bak "/^ASSEMBLYAI_API_KEY=/d" .env 2>/dev/null || true
         echo "ASSEMBLYAI_API_KEY=$EXISTING_KEY" >> .env
         echo "Auto-synced global configuration tokens across repositories."
+        cat .env
+        pause
     fi
 fi
 
@@ -57,13 +60,19 @@ read -p "Enter TWILIO_PHONE_NUMBER: " T_NUM
 read -p "Enter TWILIO_TRUNK_DOMAIN: " T_DOMAIN
 
 # Clean previous configs and append the fresh variables to the active environment
-sed -i.bak "/^TWILIO_/d" .env 2>/dev/null || true
+# sed -i.bak "/^TWILIO_/d" .env 2>/dev/null || true
+# Safely remove only lines starting with TWILIO_
+sed -i "" "/^TWILIO_/d" .env 2>/dev/null || sed -i.bak "/^TWILIO_/d" .env 2>/dev/null || true
 cat << EOF >> .env
 TWILIO_ACCOUNT_SID=$T_SID
 TWILIO_AUTH_TOKEN=$T_TOKEN
 TWILIO_PHONE_NUMBER=$T_NUM
 TWILIO_TRUNK_DOMAIN=$T_DOMAIN
 EOF
+
+cat .env
+pause
+npm start
 
 echo "Initializing telephone integration systems..."
 npm run phone --if-present || true
