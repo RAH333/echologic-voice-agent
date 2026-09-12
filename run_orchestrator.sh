@@ -41,7 +41,7 @@ while true; do
             echo "Select an isolated Core Provisioning / Telephony Setup Module [Pages 1 to 5]:"
             echo "-----------------------------------------------------------------"
             echo " 1) Run Stage 1: Core Setup, Cloner, Dependecies & Twilio Telephony Injection"
-            echo " 2) Run Stage 2: Session Reconstruct & Telemetry Extraction (stage2_tele.sh)"
+            echo " 2) Run Stage 2: Session Reconstruct & Telemetry Extraction"
             echo " 3) Run Stage 3: Twilio SIP Telephony Gateway Configuration"
             echo " 4) Run Stage 4: Advanced Agent API Code Router & Overrides"
             echo " 5) Run Stage 5: Multilingual Code-Switching Voice Provisioner"
@@ -51,7 +51,7 @@ while true; do
             if [ "$sub_setup" -eq 1 ]; then
                 bash "$MATRIX_DIR/stage1_get_started.sh" "$REPO_DIR"
             elif [ "$sub_setup" -eq 2 ]; then
-                bash "$MATRIX_DIR/stage2_tele.sh" "$REPO_DIR"
+                bash "$MATRIX_DIR/stage2_telemetry.sh" "$REPO_DIR"
             elif [ "$sub_setup" -eq 3 ]; then
                 bash "$MATRIX_DIR/stage3_twilio.sh" "$REPO_DIR" 2>/dev/null || echo "stage3_twilio.sh missing or target context unavailable."
             elif [ "$sub_setup" -eq 4 ]; then
