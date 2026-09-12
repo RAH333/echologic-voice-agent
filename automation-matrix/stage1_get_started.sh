@@ -18,7 +18,7 @@ else
 fi
 
 # Share environmental variables downstream
-cd "$WORKSPACE_ROOT/voice-agent-starter-js"
+# cd "$WORKSPACE_ROOT/voice-agent-starter-js"
 if [ ! -f .env ]; then
     if [ -f .env.example ]; then cp .env.example .env; else touch .env; fi
 fi
