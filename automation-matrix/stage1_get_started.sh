@@ -7,11 +7,9 @@ echo "  RUNNING MODULE: CONSOLIDATED ENVIRONMENT SETUP & TELEPHONY"
 echo "================================================================="
 
 # Navigate to the workspace layer right above your repository directory
-pwd
-cd "$REPO_DIR/.."
-pwd
+
+# cd "$REPO_DIR/.."
 WORKSPACE_ROOT=$(pwd)
-pwd
 
 if [ ! -d "voice-agent-starter-js" ]; then
     echo " Cloning official AssemblyAI Voice Agent tool suite side-by-side..."
