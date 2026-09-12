@@ -19,10 +19,14 @@ fi
 
 # Share environmental variables downstream
 # cd "$WORKSPACE_ROOT/voice-agent-starter-js"
+pwd
 
 if [ ! -f .env ]; then
+    echo " searchinh env file"
     if [ -f .env.example ]; then cp .env.example .env; else touch .env; fi
 fi
+
+pwd
 
 if [ -f "$REPO_DIR/.env" ]; then
     EXISTING_KEY=$(grep "ASSEMBLYAI_API_KEY=" "$REPO_DIR/.env" | cut -d'=' -f2 || true)
