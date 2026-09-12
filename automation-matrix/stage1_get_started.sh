@@ -24,7 +24,6 @@ fi
 if [ ! -f .env ]; then
     echo " searchinh env file"
     if [ -f .env.example ]; then cp .env.example .env; else touch .env; fi
-    cat .env
 fi
 
 pwd
@@ -38,8 +37,7 @@ if [ -f "$REPO_DIR/.env" ]; then
         sed -i "" "/^ASSEMBLYAI_API_KEY=/d" .env 2>/dev/null || sed -i.bak "/^ASSEMBLYAI_API_KEY=/d" .env 2>/dev/null || true
         echo "ASSEMBLYAI_API_KEY=$EXISTING_KEY" >> .env
         echo "Auto-synced global configuration tokens across repositories."
-        cat .env
-        pause
+        pwd
     fi
 fi
 
@@ -70,9 +68,9 @@ TWILIO_PHONE_NUMBER=$T_NUM
 TWILIO_TRUNK_DOMAIN=$T_DOMAIN
 EOF
 
-cat .env
-pause
+echo  "start"
 npm start
+echo "close"
 
 echo "Initializing telephone integration systems..."
 npm run phone --if-present || true
