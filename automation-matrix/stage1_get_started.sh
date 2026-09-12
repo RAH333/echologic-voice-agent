@@ -12,7 +12,7 @@ WORKSPACE_ROOT=$(pwd)
 
 if [ ! -d "voice-agent-starter-js" ]; then
     echo " Cloning official AssemblyAI Voice Agent tool suite side-by-side..."
-    git clone https://github.com "voice-agent-starter-js"
+    # git clone https://github.com "voice-agent-starter-js"
 else
     echo "AssemblyAI official workspace directory is already verified."
 fi
