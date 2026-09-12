@@ -46,7 +46,7 @@ if [ -f "$REPO_DIR/.env" ]; then
     read -p "Enter ASSEMBLYAI_API_KEY: " EXISTING_KEY 
     echo "ASSEMBLYAI_API_KEY=$EXISTING_KEY" >> .env
     echo "🔄 Auto-synced global configuration tokens across repositories."
-    fi
+    #fi
 fi
 
 # echo "Installing workspace application dependencies..."
