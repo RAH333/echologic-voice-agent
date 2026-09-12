@@ -38,8 +38,8 @@ if [ -f "$REPO_DIR/.env" ]; then
     fi
 fi
 
-echo "Installing workspace application dependencies..."
-npm install
+# echo "Installing workspace application dependencies..."
+# npm install
 
 echo "Publishing baseline configurations to AssemblyAI cloud engine..."
 npm run publish --if-present || true
