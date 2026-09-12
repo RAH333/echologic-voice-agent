@@ -24,6 +24,7 @@ fi
 if [ ! -f .env ]; then
     echo " searchinh env file"
     if [ -f .env.example ]; then cp .env.example .env; else touch .env; fi
+    cat .env
 fi
 
 pwd
