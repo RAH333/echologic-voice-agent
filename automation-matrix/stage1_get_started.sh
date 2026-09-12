@@ -20,7 +20,6 @@ fi
 
 # Share environmental variables downstream
 # cd "$WORKSPACE_ROOT/voice-agent-starter-js"
-pwd
 
 if [ ! -f .env ]; then
     echo " searchinh env file"
@@ -30,8 +29,10 @@ fi
 pwd
 
 if [ -f "$REPO_DIR/.env" ]; then
+    pwd
     EXISTING_KEY=$(grep "ASSEMBLYAI_API_KEY=" "$REPO_DIR/.env" | cut -d'=' -f2 || true)
     if [ -n "$EXISTING_KEY" ]; then
+        pwd
         sed -i.bak "/^ASSEMBLYAI_API_KEY=/d" .env 2>/dev/null || true
         echo "ASSEMBLYAI_API_KEY=$EXISTING_KEY" >> .env
         echo "Auto-synced global configuration tokens across repositories."
