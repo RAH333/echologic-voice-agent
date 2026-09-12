@@ -40,11 +40,12 @@ fi
 
 # Now this block will find the separate file paths and print your output!
 if [ -f "$REPO_DIR/.env" ]; then
-    EXISTING_KEY=$(grep "ASSEMBLYAI_API_KEY=" "$REPO_DIR/.env" | cut -d'=' -f2 || true)
-    if [ -n "$EXISTING_KEY" ]; then
-        sed -i "" "/^ASSEMBLYAI_API_KEY=/d" .env 2>/dev/null || sed -i.bak "/^ASSEMBLYAI_API_KEY=/d" .env 2>/dev/null || true
-        echo "ASSEMBLYAI_API_KEY=$EXISTING_KEY" >> .env
-        echo "🔄 Auto-synced global configuration tokens across repositories."
+    # EXISTING_KEY=$(grep "ASSEMBLYAI_API_KEY=" "$REPO_DIR/.env" | cut -d'=' -f2 || true)
+    #if [ -n "$EXISTING_KEY" ]; then
+        # sed -i "" "/^ASSEMBLYAI_API_KEY=/d" .env 2>/dev/null || sed -i.bak "/^ASSEMBLYAI_API_KEY=/d" .env 2>/dev/null || true
+    read -p "Enter ASSEMBLYAI_API_KEY: " EXISTING_KEY 
+    echo "ASSEMBLYAI_API_KEY=$EXISTING_KEY" >> .env
+    echo "🔄 Auto-synced global configuration tokens across repositories."
     fi
 fi
 
@@ -66,14 +67,21 @@ read -p "Enter TWILIO_TRUNK_DOMAIN: " T_DOMAIN
 
 # Clean previous configs and append the fresh variables to the active environment
 # sed -i.bak "/^TWILIO_/d" .env 2>/dev/null || true
+
 # Safely remove only lines starting with TWILIO_
-sed -i "" "/^TWILIO_/d" .env 2>/dev/null || sed -i.bak "/^TWILIO_/d" .env 2>/dev/null || true
-cat << EOF >> .env
-TWILIO_ACCOUNT_SID=$T_SID
-TWILIO_AUTH_TOKEN=$T_TOKEN
-TWILIO_PHONE_NUMBER=$T_NUM
-TWILIO_TRUNK_DOMAIN=$T_DOMAIN
-EOF
+
+# #sed -i "" "/^TWILIO_/d" .env 2>/dev/null || sed -i.bak "/^TWILIO_/d" .env 2>/dev/null || true
+# cat << EOF >> .env
+# TWILIO_ACCOUNT_SID=$T_SID
+# TWILIO_AUTH_TOKEN=$T_TOKEN
+# TWILIO_PHONE_NUMBER=$T_NUM
+# TWILIO_TRUNK_DOMAIN=$T_DOMAIN
+# EOF
+
+echo "TWILIO_ACCOUNT_SID=$T_SID" >> .env
+echo "TWILIO_AUTH_TOKEN=$T_TOKEN" >> .env
+echo "TWILIO_PHONE_NUMBER=$T_NUM" >> .env
+echo "TWILIO_TRUNK_DOMAIN=$T_DOMAIN" >> .env
 
 echo  "start"
 npm start
