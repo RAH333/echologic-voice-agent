@@ -55,7 +55,7 @@ while true; do
             elif [ "$sub_setup" -eq 3 ]; then
                 bash "$MATRIX_DIR/stage3_agent_api.sh" "$REPO_DIR" 2>/dev/null || echo "stage3_twilio.sh missing or target context unavailable."
             elif [ "$sub_setup" -eq 4 ]; then
-                bash "$MATRIX_DIR/stage4_agent_api.sh" "$REPO_DIR" 2>/dev/null || echo "stage4_agent_api.sh missing or target context unavailable."
+                bash "$MATRIX_DIR/stage4_session_analytics.sh" "$REPO_DIR" 2>/dev/null || echo "stage4_agent_api.sh missing or target context unavailable."
             elif [ "$sub_setup" -eq 5 ]; then
                 bash "$MATRIX_DIR/stage5_multilingual.sh" "$REPO_DIR" 2>/dev/null || echo "stage5_multilingual.sh missing or target context unavailable."
             else
