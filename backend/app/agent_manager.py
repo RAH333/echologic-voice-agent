@@ -16,7 +16,7 @@ def create_new_voice_feature_agent(agent_config: Dict[str, Any]) -> str:
         response = client.post(BASE_URL, headers=headers, json=agent_config)
         response.raise_for_status()
         agent_data = response.json()
-        print(f"🚀 SUCCESS: Stored Agent Created with ID: {agent_data['id']}")
+        print(f"SUCCESS: Stored Agent Created with ID: {agent_data['id']}")
         return agent_data["id"]
 
 def update_active_voice_agent(agent_id: str, updated_fields: Dict[str, Any]):
