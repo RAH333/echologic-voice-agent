@@ -2,6 +2,7 @@
 An autonomous, real-time voice agent built with AssemblyAI's Voice Agent API, WebSocket streaming, Next.js, and FastAPI for intelligent tool calling.
 ```
 graph TD
+
     User([User Audio Input]) -->|WebSockets / Microphone| FE[Next.js Frontend Client]
     FE -->|Streaming Audio / Binary| AAI_API{AssemblyAI Voice Agent API}
     
